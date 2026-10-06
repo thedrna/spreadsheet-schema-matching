@@ -38,7 +38,6 @@ class ProcessingConfig:
     empty_value_placeholders: List[str] = None
     
     def __post_init__(self):
-        #TODO: review keywords
         if self.skip_sheets_with_keywords is None:
             self.skip_sheets_with_keywords = ['summary', 'metadata', 'legend', 'cover', 'readme']
         
@@ -58,7 +57,6 @@ class ProcessingConfig:
 # Custom transformation rules
 class CustomTransformationRules:
     """Custom transformation rules that can be modified by users"""
-    #TODO: review abbreviations
     @staticmethod
     def agency_name_mapping() -> Dict[str, str]:
         """Mapping from full agency names to abbreviations"""
