@@ -4,6 +4,7 @@ import requests
 import time
 import os
 import pathlib
+from datetime import datetime
 
 # ===== CONFIGURATION =====
 # Configuration is read from environment variables set by the bash script
@@ -15,7 +16,7 @@ CONFIG = {
     "test_random": os.environ.get("OLLAMA_TEST_RANDOM", "False") == "True",
     "test_sample_count": int(os.environ.get("OLLAMA_TEST_SAMPLE_COUNT", "5")),
     "ollama_host": os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11500"),
-    "input_file": os.environ.get("OLLAMA_INPUT_CSV", "source_target_with_random_samples_columns.csv"),
+    "input_file": os.environ.get("OLLAMA_INPUT_CSV", "inputs/train/jellyfish_input_random_samples.csv"),
     "test_data": os.environ.get("OLLAMA_TEST_DATA", "False") == "True",
     "num_source_descriptions": int(os.environ.get("OLLAMA_NUM_SOURCE_DESCRIPTIONS", "3")),
 }

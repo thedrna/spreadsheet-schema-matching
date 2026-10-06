@@ -22,7 +22,7 @@ All LLMs run **locally** (Ollama / Hugging Face on a single GPU). No external LL
 
 > ⚠️ **Data notice.** The spreadsheets used in this thesis are non-public administrative permitting records shared for research purposes only, so **no data is included in this repository**. Server paths, e-mail addresses, personal names, project names and real record identifiers in the code have been replaced with placeholders (e.g. `/path/to/...`, `<YOUR_EMAIL>`, `Jane Doe`, `ABC-123-R1`). The CSVs in [`examples/`](examples/) are **synthetic** and only show the file formats.
 >
-> The code is shared close to how it was used for the thesis. It is **not yet set up to run out of the box**: paths are placeholders, and a few helper imports and file renames between steps were handled by hand (see [Known gaps](#known-gaps)).
+> The code is shared close to how it was used for the thesis. It does not run out of the box because the paths are placeholders, and two intermediate files have to be copied between laptop and server by hand (see [Moving files between laptop and server](#moving-files-between-laptop-and-server)).
 
 ---
 
@@ -173,14 +173,17 @@ python run_mapping_pipeline.py --mode process --data-dir data --output-dir outpu
     --jellyfish-results path/to/jellyfish_results_7B_CoT_withSamples_filtered_top5_th0.25.csv
 ```
 
-## Known gaps
+## Moving files between laptop and server
 
-The code is shared close to how it was run for the thesis. Known issues:
+Steps ① and ④ run locally, and steps ②, ③ and ⑤ run on the server, so two files are copied across by hand. The scripts expect them at fixed paths:
 
-- `run_mapping_pipeline.py` imports `jellyfish_interface`, which is not included. It is not used by any of the modes, so the import can be removed.
-- `ollama_description_generation.py` uses `datetime` without importing it (only hit when `RUN_DIR` is unset).
-- Files were moved between the laptop and the server by hand. Step ①'s output (`jellyfish_input_random_samples.csv`) was renamed to `source_target_with_random_samples_columns.csv` (train) or `testdata_source_target_with_random_samples_columns.csv` (test) before step ②. Step ④'s output was copied to the server for step ⑤.
-- Some heuristics are marked `#TODO` in the code for later review.
+| After step | Copy this local file | To this server path | Used by |
+|---|---|---|---|
+| ① (train split) | `<output-dir>/jellyfish_input_random_samples.csv` | `desc_generation/inputs/train/jellyfish_input_random_samples.csv` | ② with `TEST_DATA="False"` |
+| ① (test split) | `<output-dir>/jellyfish_input_random_samples.csv` | `desc_generation/inputs/test/jellyfish_input_random_samples.csv` | ② with `TEST_DATA="True"` |
+| ④ | `<output-dir>/combined_processed_data.csv` | `dfqa/inputs/combined_processed_data.csv` | ⑤ |
+
+Step ③ reads step ②'s output straight from `desc_generation/outputs/` (set `INPUT_FILE` in `run_jellyfish_schema_matching.sh` to the run folder). Step ④ needs the `jellyfish_results_*.csv` from step ③ copied back to the laptop and passed with `--jellyfish-results`.
 
 ## Citation
 

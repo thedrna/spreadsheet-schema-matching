@@ -20,7 +20,6 @@ from typing import List
 import logging
 
 from mapping import DataMappingPipeline, get_target_schema, ColumnMapping
-from jellyfish_interface import JellyfishServerInterface
 
 # Set up logging
 logging.basicConfig(
@@ -35,7 +34,6 @@ def get_excel_files(data_directory: str) -> List[str]:
     excel_files = []
     
     # Check both data and data_new directories
-    #TODO: fix later for all files, uncomment
     if os.path.exists(data_directory):
             for file in os.listdir(data_directory):
                 if file.endswith('.xlsx') and not file.startswith('~'):  # Ignore temp files
@@ -271,7 +269,6 @@ import os
 # Add the path to your jellyfish interface if needed
 # sys.path.append('/path/to/your/jellyfish/code')
 
-from jellyfish_interface import JellyfishServerInterface
 
 def main():
     # Load the jellyfish input

@@ -17,7 +17,8 @@ PROJECT_DIR="/path/to/dfqa"
 PYTHON_SCRIPT="test_df_qa_pandasai.py"
 VENV_PATH="$PROJECT_DIR/venv"
 OLLAMA_HOST="http://127.0.0.1:11500"
-INPUT_FILE="combined_processed_data_test_1dsc.csv"
+# Input = output of step 4 (local_codes/run_mapping_pipeline.py --mode process), copied to the server
+INPUT_FILE="$PROJECT_DIR/inputs/combined_processed_data.csv"
 
 cd "$PROJECT_DIR"
 

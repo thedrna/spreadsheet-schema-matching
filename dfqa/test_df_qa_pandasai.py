@@ -150,7 +150,7 @@ def main():
     """Main test function"""
     
     # Configuration
-    input_file = os.getenv('DF_QA_INPUT_CSV', 'merged_comments.csv')
+    input_file = os.getenv("DF_QA_INPUT_CSV", "inputs/combined_processed_data.csv")
     model_name = os.getenv('OLLAMA_MODEL', 'llama3.1:8b')
     ollama_host = os.getenv('OLLAMA_HOST', 'http://127.0.0.1:11500')
     run_dir = os.getenv('RUN_DIR', './outputs/test_df_qa_pandasai')
@@ -652,7 +652,7 @@ if __name__ == "__main__":
 #     """Main test function"""
     
 #     # Configuration
-#     input_file = os.getenv('DF_QA_INPUT_CSV', 'merged_comments.csv')
+#     input_file = os.getenv("DF_QA_INPUT_CSV", "inputs/combined_processed_data.csv")
 #     model_name = os.getenv('OLLAMA_MODEL', 'llama3.1:8b')
 #     ollama_host = os.getenv('OLLAMA_HOST', 'http://127.0.0.1:11500')
 #     run_dir = os.getenv('RUN_DIR', './outputs/test_df_qa_pandasai')

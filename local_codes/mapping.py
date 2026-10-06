@@ -102,7 +102,6 @@ class ExcelPreprocessor:
     
     def find_data_sheet(self, file_path: str) -> str:
         """Find the sheet containing actual data (not summary or metadata)"""
-        #TODO: multiple sheets (new data)
         try:
             excel_file = pd.ExcelFile(file_path)
             sheet_names = excel_file.sheet_names
@@ -1278,7 +1277,6 @@ class ValueTransformer:
             if len(abbreviation) == 1:
                 return value_clean
             return abbreviation
-        #TODO: add new abbreviation to agency_mapping
 
         # Last resort: truncate to max length
         truncated = value_clean[:self.config.agency_abbreviation_max_length].upper()
@@ -1404,12 +1402,10 @@ class ValueTransformer:
             match = re.search(pattern, value.lower())
             if match:
                 return match.group(1)
-        #TODO: rounds should be int
         return value.strip()
     
     def _clean_author_name(self, value: str) -> str:
         """Clean author names"""
-        #TODO: not necessary
         if pd.isna(value) or not isinstance(value, str):
             return ''
         

@@ -98,7 +98,6 @@ class CustomTransformationRules:
             'Canadian Environmental Assessment Agency': 'CEAA',
         }
     
-    #TODO: review keywords
     @staticmethod
     def comment_type_mapping() -> Dict[str, str]:
         """Mapping for standardizing comment types"""

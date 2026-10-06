@@ -29,9 +29,6 @@ VENV_PATH="$PROJECT_DIR/venv"
 OLLAMA_HOST="http://127.0.0.1:11500"
 # Respect a pre-set OLLAMA_HOST; fall back to localhost if nothing provided.
 # : "${OLLAMA_HOST:=http://127.0.0.1:11500}"
-# INPUT_FILE="source_target_columns.csv"
-# INPUT_FILE="source_target_with_random_samples_columns.csv"
-INPUT_FILE="testdata_source_target_with_random_samples_columns.csv"
 
 # Navigate to project directory
 cd "$PROJECT_DIR"
@@ -42,6 +39,14 @@ TEST_MODE="False"                    # Options: "True" or "False" - If True, pro
 TEST_RANDOM="False"                 # Options: "True" or "False" - If True, random sample; if False, head
 TEST_SAMPLE_COUNT="300"               # Number of rows to process in test mode
 TEST_DATA="True"                  # Options: "True" or "False" - If True, use test data file
+
+# Input = output of step 1 (local_codes/run_mapping_pipeline.py --mode preprocess),
+# copied to the server under inputs/train/ or inputs/test/
+if [ "$TEST_DATA" = "True" ]; then
+    INPUT_FILE="$PROJECT_DIR/inputs/test/jellyfish_input_random_samples.csv"
+else
+    INPUT_FILE="$PROJECT_DIR/inputs/train/jellyfish_input_random_samples.csv"
+fi
 NUM_SOURCE_DESCRIPTIONS="3"         # Number of description variants to generate for each source column
 
 export OLLAMA_MODEL_NAME="$MODEL_NAME"
