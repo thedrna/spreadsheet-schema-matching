@@ -1,0 +1,95 @@
+# prompt 5
+---CoT---
+Your task is to determine if the two attributes (columns) are semantically equivalent in the context of merging two tables.
+Each attribute will be provided by its name and a brief description.
+Your goal is to assess if they refer to the same information based on these names and descriptions provided.
+While answering, provide detailed explanation and justify your answer.
+
+IMPORTANT: Columns with similar data formats (e.g., both are long text strings, or both are dates) are NOT necessarily semantically equivalent. Focus on the MEANING and PURPOSE of each attribute, not just the data format.
+
+Key distinctions to consider:
+- A "comment" is semantically different from a "response" even if both contain long text
+- A "date of comment" is semantically different from a "date of response" even if both are dates
+- Pay careful attention to which entity or event the attribute describes
+
+Attribute A is [name: {source_col}, description: {source_desc}{samples_text}].
+Attribute B is [name: {target_col}, description: {target_desc}].
+
+Are Attribute A and Attribute B semantically equivalent? After your reasoning, finish your response in a separate line with and ONLY with your final answer. Choose your final answer from [Yes, No].
+
+---no CoT---
+Your task is to determine if the two attributes (columns) are semantically equivalent in the context of merging two tables.
+Each attribute will be provided by its name and a brief description.
+Your goal is to assess if they refer to the same information based on these names and descriptions provided.
+
+IMPORTANT: Columns with similar data formats (e.g., both are long text strings, or both are dates) are NOT necessarily semantically equivalent. Focus on the MEANING and PURPOSE of each attribute, not just the data format. For example, a "comment" is different from a "response", and a "date of comment" is different from a "date of response".
+
+Attribute A is [name: {source_col}, description: {source_desc}{samples_text}].
+Attribute B is [name: {target_col}, description: {target_desc}].
+
+Are Attribute A and Attribute B semantically equivalent? Choose your answer from: [Yes, No].
+
+
+# prompt 4
+---- CoT ----
+Your task is to determine if the two attributes (columns) are semantically equivalent in the context of merging two tables.
+Each attribute will be provided by its name and a brief description.
+Your goal is to assess if they refer to the same information based on these names and descriptions provided.
+While answering, provide detailed explanation and justify your answer.
+
+Attribute A is [name: {source_col}, description: {source_desc}{samples_text}].
+Attribute B is [name: {target_col}, description: {target_desc}].
+
+Are Attribute A and Attribute B semantically equivalent? After your reasoning, finish your response in a separate line with and ONLY with your final answer. Choose your final answer from [Yes, No].
+
+---- no CoT ----
+Your task is to determine if the two attributes (columns) are semantically equivalent in the context of merging two tables.
+Each attribute will be provided by its name and a brief description.
+Your goal is to assess if they refer to the same information based on these names and descriptions provided.
+
+Attribute A is [name: {source_col}, description: {source_desc}{samples_text}].
+Attribute B is [name: {target_col}, description: {target_desc}].
+
+Are Attribute A and Attribute B semantically equivalent? Choose your answer from: [Yes, No].
+
+
+# prompt 3: CoT, samples
+        prompt = f"""Your task is to determine if two database columns are semantically equivalent for merging purposes.
+Each column is described by its name, description, and sample values.
+
+Attribute A is [name: {source_attr}, description: {source_desc}{sample_context}].
+Attribute B is [name: {target_attr}, description: {target_desc}].
+
+Are Attribute A and Attribute B semantically equivalent?
+
+First, provide a step-by-step rationale for your decision. Analyze the names, descriptions, and any sample data to justify your conclusion. After your reasoning, end your response with the final answer on a new, separate line. The final answer must be exactly one word: "Yes" or "No".
+"""
+
+# prompt 2: no CoT, samples, Gemini style
+        # prompt = f"""You are a database column classifier. Your only function is to determine if two columns are semantically equivalent and respond with a single word: "Yes" or "No". Do not provide explanations, markdown, or any other text.
+
+        #     Example:
+        #     Attribute A: [name: comment id, description: The unique identifier for each comment.]
+        #     Attribute B: [name: ID, description: unique, sequential numerical identifiers for each BC mining permit application.]
+        #     Are Attribute A and Attribute B semantically equivalent?
+        #     Yes
+
+        #     ---
+
+        #     Task:
+        #     Attribute A: [name: {source_attr}, description: {source_desc}{sample_context}]
+        #     Attribute B: [name: {target_attr}, description: {target_desc}]
+        #     Are Attribute A and Attribute B semantically equivalent?
+        #     """
+        
+# prompt 1: no CoT, samples
+#         prompt = f"""Your task is to determine if two database columns are semantically equivalent for table merging purposes.
+# Each column is described by its name, description, and sample values.
+# The sample values can be either actual data from the column or brief descriptions of the data type. Note that missing values (N/A or "nan") should not be used as a basis for
+# your decision. Your goal is to assess if they refer to the same information based on these names and descriptions provided.
+
+# Attribute A is [name: {source_attr}, description: {source_desc}{sample_context}].
+# Attribute B is [name: {target_attr}, description: {target_desc}].
+
+# Are Attribute A and Attribute B semantically equivalent? Answer with exactly one word - Yes or No:
+# """

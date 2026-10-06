@@ -1,0 +1,21 @@
+# Private data: never commit
+data/
+data_new/
+*.xlsx
+*.xls
+outputs/
+on_server_files/
+value_mapping_results/
+manual_outputs/
+*.csv
+!examples/*.csv
+
+# Environments / caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.out
+*.err
+.DS_Store
+.ipynb_checkpoints/

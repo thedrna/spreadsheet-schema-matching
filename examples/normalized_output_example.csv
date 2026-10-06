@@ -1,0 +1,4 @@
+comment_id,section,topic,round,comment_type,comment_text,response_text,author,date_received,date_responded,status,agency,source_file,project,data_structure
+AGY-001,4.2,Water Quality,1,Information Requirement,Please clarify the water balance assumptions.,The water balance has been revised in Section 4.,Jane Doe,2022-01-15,2022-02-20,Closed,AGY,example_project_A.xlsx,example_project_A,long
+AGY-001,4.2,Water Quality,2,Information Requirement,The revised balance omits seepage losses.,Seepage losses are now included in Table 4-3.,Jane Doe,2022-03-01,2022-03-28,Closed,AGY,example_project_A.xlsx,example_project_A,long
+7,2.1,Wildlife,1,General Comment,Provide the updated baseline survey.,,John Smith,2023-05-09,,Open,EFNA,example_project_B.xlsx,example_project_B,wide

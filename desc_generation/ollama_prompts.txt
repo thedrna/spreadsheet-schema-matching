@@ -1,0 +1,203 @@
+1.
+"""Task: Write one detailed technical sentence describing this BC mining permitting process database column.
+
+Column name: {column_name}
+{context_line}
+
+Guidelines:
+- Maximum 25 words
+- Must start with "This column"
+- Include the data type or format if evident
+- Explain the specific purpose in mining permit context
+- Mention any key relationships or dependencies
+- Be precise and technical
+- End with a period
+
+Examples:
+- This column stores unique numeric identifiers for tracking individual mining permit applications across the system.
+- This column contains timestamp data representing the date and time when comments were made.
+
+Response: This column"""
+
+2.
+Task: Write one concise, technical sentence describing this database column.
+
+**Table Context:**
+The table contains back-and-forth comments from various reviewers to the proponent for a major mine project.
+
+**Inputs:**
+1.  Column Name: {column_name}
+2.  {context_line}
+
+**Guidelines:**
+1.  **Start with:** "This column"
+2.  **Function:** Describe the column's specific purpose *based on the Table Context*. Infer the entity (e.g., 'comment', 'reviewer', 'response') from the `Column Name` and `Context`.
+3.  **Format:** If `Context` contains sample values, infer the data type (e.g., "numeric identifier," "timestamp," "text").
+4.  **Length:** Strictly 25 words or less.
+5.  **Style:** Be precise and technical. Do not add justifications (e.g., "is important for," "facilitating traceability"). Focus on *what it is*.
+6.  **End with:** A period.
+
+**Examples (Source Column with Samples):**
+* **Inputs:**
+    * Column Name: `ID #`
+    * Context: `Sample values: 1, 2, 3`
+* **Target Response:** This column is a unique numeric identifier for individual comments in the permit review process.
+
+**Example (Target Column with Description):**
+* **Inputs:**
+    * Column Name: `Comment_Text`
+    * Context: `Current description: The reviewer's feedback`
+* **Target Response:** This column contains the full text of the comment submitted by a reviewer.
+
+Response: This column
+
+3. BADBADBADBADBADBADBADBADBAD
+Task: Write one concise, technical sentence describing this database column.
+
+**Table Context:**
+The table contains back-and-forth comments from various reviewers to the proponent for a major mine project.
+- **COMMENT**: Initial feedback/question from a reviewer to the proponent
+- **RESPONSE**: The proponent's answer to a reviewer's comment
+
+**Inputs:**
+1.  Column Name: {column_name}
+2.  {context_line}
+
+**Critical Guidelines:**
+1.  **Start with:** "This column"
+2.  **Be Specific About Direction:** 
+    - If the column name suggests "comment" OR "reviewer" OR "received", it refers to the REVIEWER→PROPONENT direction (the initial comment).
+    - If the column name suggests "response" OR "proponent" OR "responded", it refers to the PROPONENT→REVIEWER direction (the answer).
+    - **NEVER use ambiguous phrases like "comment or response"**. Choose ONE based on the column name.
+3.  **Be Specific About Entity:**
+    - For text columns: Explicitly state whether it contains "the reviewer's comment text" OR "the proponent's response text".
+    - For date columns: Explicitly state whether it's "when the comment was received" OR "when the response was submitted".
+    - Use the column name as the primary indicator of which entity it refers to.
+4.  **Format:** If `Context` contains sample values, infer the data type (e.g., "numeric identifier," "timestamp," "text").
+5.  **Length:** Strictly 25 words or less.
+6.  **Style:** Be precise and technical. Do not add justifications (e.g., "is important for," "facilitating traceability"). Focus on *what it is*.
+7.  **End with:** A period.
+
+**Examples (Source Column with Samples):**
+* **Inputs:**
+    * Column Name: `Comment_Date`
+    * Context: `Sample values: 2023-01-15, 2023-02-20`
+* **Target Response:** This column contains the timestamp when the reviewer's comment was received from the reviewer.
+
+* **Inputs:**
+    * Column Name: `Response_Date`
+    * Context: `Sample values: 2023-01-20, 2023-02-25`
+* **Target Response:** This column contains the timestamp when the proponent's response was submitted.
+
+* **Inputs:**
+    * Column Name: `Reviewer_Comment`
+    * Context: `Sample values: Please clarify the water usage...`
+* **Target Response:** This column contains the full text of the comment submitted by the reviewer to the proponent.
+
+* **Inputs:**
+    * Column Name: `Proponent_Response`
+    * Context: `Sample values: Water usage will be reduced by...`
+* **Target Response:** This column contains the full text of the proponent's response to the reviewer's comment.
+
+**Example (Target Column with Description):**
+* **Inputs:**
+    * Column Name: `comment_text`
+    * Context: `Current description: The feedback text`
+* **Target Response:** This column contains the full text of the comment submitted by the reviewer.
+
+Response: This column
+
+4. BADBADBADBADBADBADBADBADBAD
+Task: Write one concise, technical sentence describing this database column.
+
+**Table Context:**
+The table contains back-and-forth comments from various reviewers to the proponent for a major mine project.
+- **COMMENT**: Initial feedback/question from a reviewer to the proponent
+- **RESPONSE**: The proponent's answer to a reviewer's comment
+
+**Inputs:**
+1.  Column Name: {column_name}
+2.  {context_line}
+
+**Critical Guidelines:**
+1.  **Start with:** "This column"
+2.  **Identify Column Type First:**
+    - **Metadata columns** (e.g., section, topic, round, author, agency, status, ID): Describe what the column identifies or categorizes. These apply to the exchange as a whole.
+    - **Content columns** (text containing "comment" or "response"): Be specific about direction.
+    - **Temporal columns** (dates with "received" or "responded"): Be specific about which event.
+3.  **Be Specific About Direction (for content/temporal columns only):** 
+    - If the column name contains "comment" OR "reviewer" OR "received", it refers to the REVIEWER→PROPONENT direction (the initial comment).
+    - If the column name contains "response" OR "proponent" OR "responded", it refers to the PROPONENT→REVIEWER direction (the answer).
+    - **NEVER use ambiguous phrases like "comment or response"**. Choose ONE based on the column name.
+4.  **Be Specific About Entity:**
+    - For text columns containing actual comments/responses: Explicitly state whether it contains "the reviewer's comment text" OR "the proponent's response text".
+    - For date columns: Explicitly state whether it's "when the comment was received" OR "when the response was submitted".
+    - For metadata columns: Describe what they identify, categorize, or track (e.g., "identifies the reviewing agency", "categorizes the topic").
+5.  **Format:** If `Context` contains sample values, infer the data type (e.g., "numeric identifier," "timestamp," "text").
+6.  **Length:** Strictly 30 words or less.
+7.  **Style:** Be precise and technical. Do not add justifications (e.g., "is important for," "facilitating traceability"). Focus on *what it is*.
+8.  **End with:** A period.
+
+**Examples (Source Column with Samples):**
+
+* **Inputs:**
+    * Column Name: `agency`
+    * Context: `Sample values: EPA, Ministry of Environment, Fish and Wildlife`
+* **Target Response:** This column identifies the reviewing agency that submitted the comment.
+
+* **Inputs:**
+    * Column Name: `Comment_Date`
+    * Context: `Sample values: 2023-01-15, 2023-02-20`
+* **Target Response:** This column contains the timestamp when the reviewer's comment was received.
+
+* **Inputs:**
+    * Column Name: `Proponent_Response`
+    * Context: `Sample values: Water usage will be reduced by...`
+* **Target Response:** This column contains the full text of the proponent's response to the reviewer's comment.
+
+**Example (Target Column with Description):**
+* **Inputs:**
+    * Column Name: `comment_text`
+    * Context: `Current description: The feedback text`
+* **Target Response:** This column contains the full text of the comment submitted by the reviewer.
+
+Response: This column
+
+
+5.
+Task: Write one concise, technical sentence describing this database column.
+
+**Table Context:**
+The table contains back-and-forth comments from various reviewers to the proponent for a major mine project.
+
+**Inputs:**
+1.  Column Name: {column_name}
+2.  {context_line}
+
+**Guidelines:**
+1.  **Start with:** "This column"
+2.  **Function:** Describe the column's specific purpose *based on the Table Context*. Infer the entity (e.g., 'comment', 'reviewer', 'response') from the `Column Name` and `Context`.
+3.  **Be Specific About Direction:** 
+    - If the column name suggests "comment" OR "reviewer" OR "received", it refers to the REVIEWER→PROPONENT direction (the initial comment).
+    - If the column name suggests "response" OR "proponent" OR "responded", it refers to the PROPONENT→REVIEWER direction (the answer).
+    - **NEVER use ambiguous phrases like "comment or response"**. Choose ONE based on the column name.
+4.  **Format:** If `Context` contains sample values, infer the data type (e.g., "numeric identifier," "timestamp," "text").
+5.  **Length:** Strictly 25 words or less.
+6.  **Style:** Be precise and technical. Do not add justifications (e.g., "is important for," "facilitating traceability"). Focus on *what it is*.
+7.  **End with:** A period.
+
+**Examples (Source Column with Samples):**
+* **Inputs:**
+    * Column Name: `ID #`
+    * Context: `Sample values: 1, 2, 3`
+* **Target Response:** This column is a unique numeric identifier for individual comments in the permit review process.
+
+**Example (Target Column with Description):**
+* **Inputs:**
+    * Column Name: `Comment_Text`
+    * Context: `Current description: The reviewer's feedback`
+* **Target Response:** This column contains the full text of the comment submitted by a reviewer.
+
+Response: This column
+
+

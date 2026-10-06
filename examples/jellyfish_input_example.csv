@@ -1,0 +1,6 @@
+source_column,source_description,sample_1,sample_2,sample_3,target_column,target_description,source_file
+ID #,Unique identifier for the record,AGY-001,AGY-002,AGY-003,comment_id,Unique identifier for the comment,example_project_A.xlsx
+ID #,Unique identifier for the record,AGY-001,AGY-002,AGY-003,comment_text,Full text of the comment,example_project_A.xlsx
+Reviewer Comment,Text content of the comment or feedback,Please clarify the water balance assumptions.,Provide the updated baseline survey.,Confirm monitoring frequency.,comment_text,Full text of the comment,example_project_A.xlsx
+Proponent Response,Reply or answer to the comment,The water balance has been revised in Section 4.,The survey is attached as Appendix B.,Monitoring will be quarterly.,response_text,Proponent's response to the comment,example_project_A.xlsx
+Date Received,Date when the item was created or received,2022-01-15,2022-02-03,2022-03-10,date_received,Date comment was received,example_project_A.xlsx

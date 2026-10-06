@@ -1,0 +1,17 @@
+# Local steps (preprocessing, value normalization, plots)
+pandas
+numpy
+openpyxl
+matplotlib
+
+# Server: description generation & schema matching
+requests
+torch
+transformers
+accelerate
+sentence-transformers
+scikit-learn
+
+# Server: downstream QA
+pandasai
+PyYAML
